@@ -1,3 +1,7 @@
+
+@extends('master')
+
+@section('content')
 <h2>Log In</h2>
     
     <form method="POST" action="/login">
@@ -17,3 +21,4 @@
         </div>
         
     </form>
+    @endsection
