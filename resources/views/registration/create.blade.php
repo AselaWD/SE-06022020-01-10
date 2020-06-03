@@ -1,5 +1,7 @@
 
+@extends('master')
 
+@section('content')
  
 <head>
 
@@ -7,6 +9,12 @@
 </head>
  
     <h2>Register</h2>
+    <br />
+  @if($message = Session::get('success'))
+  <div class="alert alert-success">
+   <p>{{$message}}</p>
+  </div>
+  @endif
     <form method="POST" action="/register">
         {{ csrf_field() }}
         <div class="form-group">
@@ -39,4 +47,5 @@
         </div>
         
     </form>
+    @endsection
  

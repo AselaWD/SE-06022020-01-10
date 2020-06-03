@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use  App\User;
+use  App\Product;
  
 class SessionsController extends Controller
 {
@@ -30,5 +31,25 @@ class SessionsController extends Controller
         auth()->logout();
         
         return redirect()->to('/games');
+    }
+    public function price()
+    {
+        $products = Product::orderBy('type', 'DESC')->get()->toArray();;
+        return view('product.index', compact('products'));
+    }
+    public function type()
+    {
+        $products = Product::orderBy('type', 'DESC')->get()->toArray();
+        return view('product.index', compact('products'));
+    }
+    public function priceAsc()
+    {
+        $products = Product::orderBy('type', 'ASC')->get()->toArray();;
+        return view('product.index', compact('products'));
+    }
+    public function typeAsc()
+    {
+        $products = Product::orderBy('type', 'ASC')->get()->toArray();
+        return view('product.index', compact('products'));
     }
 }
